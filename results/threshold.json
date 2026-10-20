@@ -1,0 +1,21 @@
+{
+  "threshold": 0.018,
+  "alerts": 614.0,
+  "true_alerts": 33.0,
+  "alert_ppv": 0.0537,
+  "patients_caught": 19.0,
+  "sepsis_patients": 31.0,
+  "patient_sensitivity": 0.6129,
+  "median_lead_time_hours": 7.0,
+  "alerts_per_100_patient_days": 99.5878,
+  "non_sepsis_patients_alerted": 0.5718,
+  "f1": 0.0988,
+  "rule": "highest alert PPV with validation patient sensitivity >= 0.6 (three-gate policy)",
+  "data": "hospital A validation patients",
+  "risk_only_reference": {
+    "threshold": 0.038,
+    "patient_sensitivity": 0.6129,
+    "non_sepsis_patients_alerted": 0.4011,
+    "alert_hours_per_100_patient_days": 264.2157
+  }
+}

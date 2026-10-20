@@ -1,0 +1,84 @@
+{
+  "data": "hospital B (never used for training or threshold choice)",
+  "patients": 2000,
+  "sepsis_patients": 108,
+  "patient_hours": 77220,
+  "threshold": 0.018,
+  "models": {
+    "baseline_logistic": {
+      "auroc": 0.7613,
+      "auprc": 0.0687,
+      "brier": 0.0129,
+      "positive_rate": 0.0133
+    },
+    "main_hgb": {
+      "auroc": 0.7442,
+      "auprc": 0.0538,
+      "brier": 0.013,
+      "positive_rate": 0.0133
+    }
+  },
+  "policies": [
+    {
+      "policy": "P0 naive (risk only)",
+      "alerts": 17518,
+      "true_alerts": 871,
+      "alert_ppv": 0.0497,
+      "patients_caught": 79,
+      "sepsis_patients": 108,
+      "patient_sensitivity": 0.7315,
+      "median_lead_time_hours": 12.0,
+      "alerts_per_100_patient_days": 544.46,
+      "non_sepsis_patients_alerted": 0.6173
+    },
+    {
+      "policy": "P1 risk + cooldown",
+      "alerts": 4216,
+      "true_alerts": 167,
+      "alert_ppv": 0.0396,
+      "patients_caught": 78,
+      "sepsis_patients": 108,
+      "patient_sensitivity": 0.7222,
+      "median_lead_time_hours": 8.0,
+      "alerts_per_100_patient_days": 131.0334,
+      "non_sepsis_patients_alerted": 0.6173
+    },
+    {
+      "policy": "P2 risk + worsening",
+      "alerts": 6729,
+      "true_alerts": 434,
+      "alert_ppv": 0.0645,
+      "patients_caught": 72,
+      "sepsis_patients": 108,
+      "patient_sensitivity": 0.6667,
+      "median_lead_time_hours": 9.0,
+      "alerts_per_100_patient_days": 209.1375,
+      "non_sepsis_patients_alerted": 0.4292
+    },
+    {
+      "policy": "P3 SepsisGuardian (3 gates)",
+      "alerts": 2447,
+      "true_alerts": 125,
+      "alert_ppv": 0.0511,
+      "patients_caught": 70,
+      "sepsis_patients": 108,
+      "patient_sensitivity": 0.6481,
+      "median_lead_time_hours": 7.5,
+      "alerts_per_100_patient_days": 76.0528,
+      "non_sepsis_patients_alerted": 0.4292
+    },
+    {
+      "policy": "NEWS2-lite >= 5 (rule only)",
+      "alerts": 8660,
+      "true_alerts": 414,
+      "alert_ppv": 0.0478,
+      "patients_caught": 69,
+      "sepsis_patients": 108,
+      "patient_sensitivity": 0.6389,
+      "median_lead_time_hours": 7.0,
+      "alerts_per_100_patient_days": 269.1531,
+      "non_sepsis_patients_alerted": 0.5254
+    }
+  ],
+  "headline": "Three gates cut alerts from 544.5 to 76.1 per 100 patient-days while catching 64.8% of sepsis patients"
+}

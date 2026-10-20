@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Raw data never goes to GitHub
+data/
+
+# OS / editor / logs
+.DS_Store
+*.log
+.vscode/
+
+# Round 1 slide work (not part of the Round 2 code)
+work/
+deliverables/

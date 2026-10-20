@@ -1,0 +1,18 @@
+{
+  "split": {
+    "train_patients": 1600,
+    "validation_patients": 400
+  },
+  "baseline_logistic": {
+    "auroc": 0.6798,
+    "auprc": 0.0477,
+    "brier": 0.0193,
+    "positive_rate": 0.0199
+  },
+  "main_hgb": {
+    "auroc": 0.7141,
+    "auprc": 0.06,
+    "brier": 0.0191,
+    "positive_rate": 0.0199
+  }
+}
