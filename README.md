@@ -87,7 +87,7 @@ All numbers come from `results/metrics.json`, produced by `src/evaluate.py`. Def
 ## Tech stack
 | Part | Tools |
 |---|---|
-| Language | Python 3.9 |
+| Language | Python 3.9 (laptop) · Python 3.12 (Streamlit Cloud) |
 | Data | pandas 2.2, NumPy 1.26 |
 | Model | scikit-learn 1.5: HistGradientBoostingClassifier, LogisticRegression, isotonic calibration |
 | Website | Streamlit 1.50, Plotly 5.24 |

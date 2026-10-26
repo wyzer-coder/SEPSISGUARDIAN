@@ -13,4 +13,4 @@
 - [ ] Submitted on the portal (by the student, with their own login)
 
 **Team does these (23 Oct decision):** push to GitHub · deploy on Streamlit Community Cloud
-(main file `app/Home.py`, Python 3.9) · record the video with `docs/DEMO_SCRIPT.md` · add both links to the README · submit.
+(main file `app/Home.py`, **Python 3.12**) · record the video with `docs/DEMO_SCRIPT.md` · add both links to the README · submit.

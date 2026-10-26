@@ -81,7 +81,7 @@ repo `https://github.com/wyzer-coder/SEPSISGUARDIAN`, branch `main`. Make the re
 
 **3. Deploy** on Streamlit Community Cloud (share.streamlit.io):
 - Repository `wyzer-coder/SEPSISGUARDIAN` · Branch `main` · Main file **`app/Home.py`**
-- Advanced settings → Python **3.9**
+- Advanced settings → Python **3.12** (the default 3.14 fails: packages must be built from source)
 - Open the link in a **private window** to check it works.
 
 **4. Record the video** with `docs/DEMO_SCRIPT.md` (about 2 min 40 s; the key moment is Bed 20 at hour 39 in Tamil).

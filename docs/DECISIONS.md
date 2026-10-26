@@ -93,3 +93,9 @@
 - Proof: a real browser now reaches our Clerk instance's `/oauth/authorize` with `scope=openid email profile`;
   regression test `test_installed_authlib_works_with_streamlit_sign_in` passes on 1.6.5 and fails on 1.6.12.
 - Note: newer Authlib releases may carry security fixes; revisit when Streamlit supports them.
+
+## 2026-10-26 — Streamlit Cloud must use Python 3.12
+- First deploy used the Cloud default, Python 3.14.9. Our pinned pandas, numpy, scikit-learn and matplotlib have no
+  ready-made wheels for 3.14, so Cloud tried to build them from source; the app started without plotly (ModuleNotFoundError).
+- Checked with `pip download --only-binary=:all:` for Linux: Python 3.12 has wheels for all 60 files; 3.13 fails (numpy 1.26.4).
+- Fix: redeploy with Python 3.12 in Advanced settings. No code change. The laptop stays on Python 3.9.

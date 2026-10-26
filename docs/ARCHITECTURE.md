@@ -49,4 +49,4 @@ The website never trains a model and never reads raw data. Everything it shows i
 - Imports `src/gates.py`, `src/explain.py`, `src/messages.py`, so the website uses **the same code** as the evaluation.
 - Size of `app/`: 6.3 MB (Streamlit Community Cloud limit used here: 25 MB).
 - Deploy: Streamlit Community Cloud → repo `wyzer-coder/SEPSISGUARDIAN`, branch `main`, main file `app/Home.py`,
-  Python 3.9 (Advanced settings).
+  **Python 3.12** (Advanced settings). Not 3.13+: no ready-made numpy 1.26.4 for it, the install fails.
