@@ -28,6 +28,7 @@
 - Small functions, plain-English docstrings, type hints, no clever one-liners.
 - `pytest -q` must pass before every checkpoint from Phase 2 on.
 - `app/` stays under 25 MB (Streamlit Community Cloud).
+- Streamlit 1.50 (`streamlit[auth]`). Optional Clerk login via `st.login`; secrets only in git-ignored `.streamlit/secrets.toml`.
 
 ## Commands
 ```bash

@@ -12,8 +12,8 @@ Deadline: 30 Oct 2026, 11:00 PM IST (aim for 29 Oct).
 | Time box | Phase | Must-have | Can cut |
 |---|---|---|---|
 | 60 min | - [x] **Phase 4 — Gates + evaluation on B** | Student writes `gates.py` until `tests/test_gates.py` passes · re-choose the threshold on validation WITH the gates · P0–P3 on B · `metrics.json` | NEWS2-lite baseline row |
-| 35 min | - [ ] **Phase 5 — Explanations + messages** | `why_now`, data-quality notes, English + **Tamil (student)**, message tests | Hindi |
-| 60 min | - [ ] **Phase 6 — Website** | Demo data (50 beds) · Home, Ward Overview, Patient Detail, Results | ▶ Play button, marker polish |
+| 35 min | - [x] **Phase 5 — Explanations + messages** | `why_now`, data-quality notes, English + **Tamil (student)**, message tests | Hindi |
+| 60 min | - [x] **Phase 6 — Website** | Demo data (50 beds) · Home, Ward Overview, Patient Detail, Results | ▶ Play button, marker polish |
 | 40 min | - [ ] **Phase 7 — Docs + GitHub** | README with real numbers + screenshots · first push (student's own login) | Polishing secondary docs |
 | 45 min | - [ ] **Phase 8 — Deploy + video + submit** | Streamlit Cloud link · demo video · checklist | — (the portal can be done by 29 Oct) |
 

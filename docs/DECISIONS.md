@@ -51,3 +51,45 @@
 ## 2026-10-20 — Hospital B evaluated once; main model kept although the baseline scored higher on B
 - B: baseline AUROC 0.761 vs main 0.744. Validation had chosen the main model (0.714 vs 0.680).
 - We do not switch models after seeing B; that would be tuning on the test set. Reported as a limitation.
+
+## 2026-10-23 — Tamil messages added
+- Tamil text provided by the team. The `{bed}`, `{risk}`, `{value}` and `{hours}` placeholders had been lost
+  when pasting, so Claude put them back. The long Tamil "Suppressed" label was kept as written (it wraps on screen).
+
+## 2026-10-23 — Why-now reasons: levels only when they break the limit
+- Breathing rate and oxygen are levels, not changes. They are listed as a reason only when they break the Gate-2 limit,
+  so a normal value is never shown as a "reason". Changes (MAP, HR, lactate) are listed from half the limit upwards.
+
+## 2026-10-23 — Website
+- Streamlit, 4 pages; demo of 50 random hospital-B patients (constraints above); light theme fixed in `.streamlit/config.toml`.
+- Tested: 529 automatic page loads (all pages, all 3 languages, every bed, many hours) with 0 errors,
+  plus a real-browser click-through (table row click opens the patient).
+- Team decision: the team handles GitHub upload, deployment, the video and the portal submission themselves.
+
+## 2026-10-23 — No login in Round 2
+- Considered Clerk. Its setup tool targets JavaScript frameworks (Next.js); our app is Python/Streamlit.
+- A sign-in wall would slow judges down, and the demo uses public de-identified data. Added to the final-round backlog (#8).
+
+## 2026-10-23 — Login connected (replaces "No login in Round 2" above)
+- The team asked to connect login after all. Clerk's CLI targets JavaScript apps, so we use **Streamlit's built-in
+  `st.login`** with **Clerk as the OpenID Connect provider**.
+- Streamlit upgraded 1.39.1 → **1.50.0** (`streamlit[auth]`, Authlib 1.6.12); the newest version that still runs on Python 3.9.
+  Follow-ups: `use_container_width` → `width="stretch"`; the gate table moved to full width (it was squeezed in 1.50).
+- **Safe by design:** no `[auth]` settings → open demo; complete settings → every page shows only "Sign in".
+  A missing `is_logged_in` value counts as *not* signed in.
+- Secrets live in `.streamlit/secrets.toml` (git-ignored); a template is committed. Claude never saw or handled real keys.
+- Tested: 3 automatic login tests; a real browser with fake Clerk settings (all 4 pages hidden, Sign in goes to `/auth/login`).
+  **Not tested:** a real Clerk sign-in, because that needs the team's own Clerk keys.
+
+## 2026-10-23 — No database (Neon) in Round 2
+- The app only reads fixed demo files; nothing needs saving yet. Node.js is not installed, and the Neon CLI steps assume a JavaScript app.
+- The first real use of a database is nurse feedback (backlog #1), which belongs in the 24-hour final. Neon is planned there.
+
+## 2026-10-23 — Authlib pinned to 1.6.5 (sign-in bug found in full testing)
+- Symptom: clicking **Sign in** gave `400: 'NoneType' object does not support item assignment`; Clerk was never reached.
+- Cause: Streamlit 1.50 keeps the sign-in state in a cache and passes no session. Authlib 1.6.6+ also writes into that
+  missing session. Streamlit only requires `Authlib>=1.3.2`, so pip had installed the newest, broken 1.6.12.
+- Fix: `Authlib==1.6.5`, the newest version whose state code skips the session when a cache is used (checked 1.6.0–1.6.12).
+- Proof: a real browser now reaches our Clerk instance's `/oauth/authorize` with `scope=openid email profile`;
+  regression test `test_installed_authlib_works_with_streamlit_sign_in` passes on 1.6.5 and fails on 1.6.12.
+- Note: newer Authlib releases may carry security fixes; revisit when Streamlit supports them.

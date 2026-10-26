@@ -149,3 +149,10 @@ We report this as it is and do not switch models after seeing B (that would be t
   stable-patient pages; they do not find new true cases. P2 has the best PPV (6.4%).
 - Compared with a NEWS2-style rule: about the same sensitivity (64.8% vs 63.9%) with 3.5× fewer alerts (76.1 vs 269.2).
 - About 1 in 20 alerts is a true early-warning alert. This is a prototype, not ready for a ward.
+
+## Demo patients (website) — `scripts/build_demo_data.py`
+- 50 hospital-B patients with made-up bed numbers 1–50 (beds are shuffled with seed 42).
+- 15 sepsis patients picked **at random** (seed 42), so missed cases appear too; the demo is not cherry-picked.
+- Then at least 3 non-sepsis WATCH-only patients and at least 3 patients with SUPPRESSED hours; the rest random.
+- Result: 50 beds, 2,513 patient-hours, 15 sepsis; 26 beds with a REVIEW, 23 with SUPPRESSED, 8 WATCH-only (60 KB).
+- Status, risk and reasons are computed with the same model, threshold and gates as the evaluation.

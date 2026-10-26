@@ -15,7 +15,15 @@
    This shows whether the model still works in a hospital it has never seen.
 
 ## Learning list (≤ 4 hours)
-_Phase 7._
+| Time | What | How |
+|---|---|---|
+| 30 min | What sepsis is and why early warning matters | Read the README "Problem" + Singer 2016 abstract (Sepsis-3) |
+| 30 min | Our data and leakage | `docs/DATA_AND_MODEL.md`: Dataset, Labels, Leakage rules |
+| 45 min | **The three gates (most important)** | Read `src/gates.py` top to bottom; run `.venv/bin/pytest tests/test_gates.py -v` and read each test name |
+| 30 min | PPV, sensitivity, AUROC in plain words | `docs/DATA_AND_MODEL.md` metric table + the Results page "What these words mean" |
+| 30 min | Our real results and their limits | Results page + "Honest reading" in the README |
+| 45 min | Practise the 15 questions below **out loud** | Answer without looking, then compare |
+| 30 min | Rehearse the demo | `docs/DEMO_SCRIPT.md` with the live website |
 
 ## Judge questions with model answers
 _Say them in your own words. Short and clear is best._
@@ -72,5 +80,23 @@ Risks are calibrated, so they're small: only about 2% of hours are sepsis hours.
 Yes, openly. Claude (an AI assistant) helped write the code and docs, including `gates.py` (at our request).
 We chose the problem and the three-gate idea, reviewed every file, ran every test, and can explain every line.
 
-_More questions are added at each checkpoint (15 by Phase 7), including
-"Is this beyond a first-year's level?" and "Did you use AI tools?"._
+**Q11. Is this beyond a first-year's level?**
+The ideas are simple: compare trends over 3 hours, apply three yes/no rules, measure how often we're right.
+The tools (pandas, scikit-learn, Streamlit) are standard. We used AI help openly for the code, and we can
+explain every part: what goes in, what comes out, and why. The innovation is the alert *policy*, not complex maths.
+
+**Q12. Why fixed sentences instead of Google Translate?**
+Medical safety: the same words every time, checked by a person, no surprises, and it works offline.
+Machine translation can change meaning, and a wrong word in an alert could mislead a nurse.
+
+**Q13. What does "Lactate not measured for 36 hours" tell the nurse?**
+That our risk is based on old information, so trust it less. It also suggests ordering a lactate test.
+We never invent a value for a test that wasn't done.
+
+**Q14. How do you know your demo isn't cherry-picked?**
+The 15 sepsis patients on the website were chosen at random (seed 42) from the unseen hospital, so some are
+missed cases. The headline numbers come from all 2,000 hospital-B patients, not from the demo.
+
+**Q15. What would you build next (final round)?**
+Nurse "Reviewed / False alarm" buttons that feed Gate 3, a live hour-by-hour replay, a fairness check by age and
+sex, and spoken alerts. Longer term: richer features and a real prospective study with a hospital.

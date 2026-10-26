@@ -1,9 +1,11 @@
 # Pinned for Python 3.9 (verified to install on macOS, Apple Silicon)
+# streamlit[auth] adds login (st.login); Authlib is the library it uses for OpenID Connect.
 pandas==2.2.3
 numpy==1.26.4
 scikit-learn==1.5.2
 joblib==1.4.2
-streamlit==1.39.1
+streamlit[auth]==1.50.0
+Authlib==1.6.5  # NOT newer: 1.6.6+ breaks Streamlit 1.50 sign-in ("NoneType ... item assignment"), see docs/DECISIONS.md
 plotly==5.24.1
 matplotlib==3.9.4
 requests==2.32.3

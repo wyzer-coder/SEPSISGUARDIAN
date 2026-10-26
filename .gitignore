@@ -15,3 +15,6 @@ data/
 # Round 1 slide work (not part of the Round 2 code)
 work/
 deliverables/
+
+# Login secrets (Clerk client secret etc.) - never commit
+.streamlit/secrets.toml
