@@ -1,7 +1,7 @@
 # SUBMISSION CHECKLIST — Round 2 (deadline 30 Oct 2026, 11:00 PM IST; aim for 29 Oct)
 
 - [x] `pytest -q` passes (49 tests, 23 Oct)
-- [ ] GitHub repo is public: https://github.com/wyzer-coder/SEPSISGUARDIAN
+- [x] GitHub repo is public: https://github.com/wyzer-coder/SEPSISGUARDIAN (verified 26 Oct: 60 files, no data or secrets)
 - [x] `data/` and `.venv/` are NOT in the repo; `app/demo_data/` < 25 MB (6.2 MB)
 - [x] README complete with real hospital-B numbers and the P0–P3 comparison (add the demo + video links)
 - [x] Tech stack listed in the README
